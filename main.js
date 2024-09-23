@@ -48,35 +48,31 @@ btnBlog.addEventListener("click", function () {
 });
 
 const noakhaliBtn = mySelector("noakhaliBtn");
-
-
-
-let noakhaliContent = mySelector("noakhaliContent").innerHTML
-let historyContent = mySelector("histor-content-continer")
+let noakhaliContent = mySelector("noakhaliContent").innerHTML;
+let historyContent = mySelector("histor-content-continer");
 
 noakhaliBtn.addEventListener("click", function (e) {
-    e.preventDefault();
+	e.preventDefault();
 
-    let inputValue = inputValidSelector("noakhaliInput")
-    
-    if (isNaN(inputValue) || inputValue< 0) {
-        return alert("please valid number")
-    }
+	let inputValue = inputValidSelector("noakhaliInput");
 
-    // total cash
-    let myCash = textValid("myCash")
-    let noakhaliChash = textValid("noakhaliChash")
-    
-    
-    let newBalance =  myCash - inputValue 
+	if (isNaN(inputValue) || inputValue < 0) {
+		alert("please valid number");
+		return;
+	}
 
-    let addTaka = inputValue + noakhaliChash
-    document.getElementById("myCash").innerHTML = newBalance
-    document.getElementById("noakhaliChash").innerHTML = addTaka
-   
+	// total cash
+	let myCash = textValid("myCash");
+	let noakhaliChash = textValid("noakhaliChash");
 
-   let d = new Date().toString();
-    let myHtml =`
+	let newBalance = myCash - inputValue;
+
+	let addTaka = inputValue + noakhaliChash;
+	document.getElementById("myCash").innerHTML = newBalance;
+	mySelector("noakhaliChash").innerHTML = addTaka;
+
+	let d = new Date().toString();
+	let myHtml = `
                 <div class="border-2 p-5 rounded-md space-y-3">
 						<h2 class="font-bold">
 							${inputValue} ${noakhaliContent}
@@ -86,11 +82,54 @@ noakhaliBtn.addEventListener("click", function (e) {
 						</p>
 					</div>
     
-    `
-    historyContent.innerHTML +=myHtml
-   return mySelector("noakhaliInput").value = null
-   
+    `;
+	noakhaliBtn.setAttribute("onclick", "my_modal_5.showModal()");
+	historyContent.innerHTML += myHtml;
+	return mySelector("noakhaliInput").value = null;
 });
 
+// feni input
 
+const feniBtn = mySelector("feniBtn");
+const feniContent = mySelector("feniContent").innerHTML
 
+feniBtn.addEventListener("click", function (e) {
+
+	e.preventDefault();
+
+	let inputValue = inputValidSelector("feniInput");
+    
+
+	if (isNaN(inputValue) || inputValue < 0) {
+		alert("please valid number");
+		return;
+	}else{
+
+	// total cash
+	let myCash = textValid("myCash");
+	let feniCash = textValid("feniCash");
+
+	let newBalance = myCash - inputValue;
+
+	let addTaka = inputValue + feniCash;
+	mySelector("myCash").innerHTML = newBalance;
+	mySelector("feniCash").innerHTML = addTaka;
+
+	let d = new Date().toString();
+	let myHtml = `
+                <div class="border-2 p-5 rounded-md space-y-3">
+						<h2 class="font-bold">
+							${inputValue} ${feniContent}
+						</h2>
+						<p>
+							Date: ${d}
+						</p>
+					</div>
+    
+    `;
+	// noakhaliBtn.setAttribute("onclick", "my_modal_5.showModal()");
+    
+	historyContent.innerHTML += myHtml;
+	return mySelector("feniInput").value = null;
+}
+});
