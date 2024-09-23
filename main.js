@@ -50,3 +50,14 @@ btnBlog.addEventListener("click", function () {
     btnDonation.classList.remove("text-black", "bg-[#B4F461]")
     btnHistory.classList.remove("text-black", "bg-[#B4F461]")
 })
+
+
+// doname btn class name
+
+const alldonateBtn = document.querySelectorAll(".donate") 
+
+alldonateBtn.forEach((donateBtn)=>{
+    donateBtn.addEventListener("click", function (e) {
+        
+    })
+})
