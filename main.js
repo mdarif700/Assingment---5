@@ -58,9 +58,12 @@ noakhaliBtn.addEventListener("click", function (e) {
 
 	if (isNaN(inputValue) || inputValue < 0) {
 		alert("please valid number");
-		return;
+		return mySelector("noakhaliInput").value = null;
 	}
-
+	if(inputValue > 0){
+		noakhaliBtn.setAttribute("onclick", "my_modal_5.showModal()");
+	}
+	
 	// total cash
 	let myCash = textValid("myCash");
 	let noakhaliChash = textValid("noakhaliChash");
@@ -83,7 +86,7 @@ noakhaliBtn.addEventListener("click", function (e) {
 					</div>
     
     `;
-	noakhaliBtn.setAttribute("onclick", "my_modal_5.showModal()");
+	
 	historyContent.innerHTML += myHtml;
 	return mySelector("noakhaliInput").value = null;
 });
@@ -99,11 +102,13 @@ feniBtn.addEventListener("click", function (e) {
 
 	let inputValue = inputValidSelector("feniInput");
     
-
 	if (isNaN(inputValue) || inputValue < 0) {
+		
 		alert("please valid number");
-		return;
-	}else{
+		return  mySelector("feniInput").value = null;
+	}
+
+	feniBtn.setAttribute("onclick", "my_modal_5.showModal()");
 
 	// total cash
 	let myCash = textValid("myCash");
@@ -127,9 +132,57 @@ feniBtn.addEventListener("click", function (e) {
 					</div>
     
     `;
-	// noakhaliBtn.setAttribute("onclick", "my_modal_5.showModal()");
-    
+	
+
 	historyContent.innerHTML += myHtml;
 	return mySelector("feniInput").value = null;
-}
+
+});
+
+
+// quota btn
+const quotaBtn = mySelector("quotaBtn");
+const quotaContent = mySelector("feniContent").innerHTML
+
+quotaBtn.addEventListener("click", function (e) {
+
+	e.preventDefault();
+
+	let inputValue = inputValidSelector("quotaInput");
+    
+	if (isNaN(inputValue) || inputValue < 0) {
+		
+		alert("please valid number");
+		return  mySelector("quotaInput").value = null;
+	}
+
+	
+
+	// total cash
+	let myCash = textValid("myCash");
+	let quotaCash = textValid("quotaCash");
+	
+	let newBalance = myCash - inputValue;
+
+	let addTaka = inputValue + quotaCash;
+	mySelector("myCash").innerHTML = newBalance;
+	mySelector("quotaCash").innerHTML = addTaka;
+
+	let d = new Date().toString();
+	let myHtml = `
+                <div class="border-2 p-5 rounded-md space-y-3">
+						<h2 class="font-bold">
+							${inputValue} ${quotaContent}
+						</h2>
+						<p>
+							Date: ${d}
+						</p>
+					</div>
+    
+    `;
+	
+
+	historyContent.innerHTML += myHtml;
+	return mySelector("quotaInput").value = null;
+
 });

@@ -92,7 +92,7 @@
 								supporting the relief efforts and making a positive impact on
 								the lives of those in need.
 							</p>
-							<form>
+							<form autocomplete="off" class="space-y-2">
 								<div>
 									<input
 										class="border-2 w-full py-2 rounded-md px-4 placeholder:text-xs"
@@ -137,7 +137,7 @@
 								towards making a real difference. Please consider donating today
 								to assist those in urgent need.
 							</p>
-							<form>
+							<form autocomplete="off" class="space-y-2">
 								<div>
 									<input
 										class="border-2 w-full py-2 rounded-md px-4 placeholder:text-xs"
@@ -167,9 +167,9 @@
 						<div class="space-y-4">
 							<button class="flex items-center gap-2">
 								<img class="w-4 h-4" src="./assets/coin.png" alt="" />
-								<p><span>2400</span> BDT</p>
+								<p><span id="quotaCash">2400</span> BDT</p>
 							</button>
-							<h3 class="font-bold text-xl">
+							<h3 class="font-bold text-xl" id="quotaContent">
 								Aid for Injured in the Quota Movement
 							</h3>
 							<p class="font">
@@ -183,22 +183,25 @@
 								recovery. Please consider making a donation to support these
 								brave individuals in their time of need.
 							</p>
-							<div>
-								<input
-									class="border-2 w-full py-2 rounded-md px-4 placeholder:text-xs"
-									type="text"
-									name=""
-									placeholder="Write Donation Amount"
-									id=""
-								/>
-							</div>
-							<div class="flex">
-								<button
-									class="btn flex-grow donate bg-[#B4F461]"
-								>
-									Donate Now
-								</button>
-							</div>
+							<form autocomplete="off" class="space-y-2">
+								<div>
+									<input
+										class="border-2 w-full py-2 rounded-md px-4 placeholder:text-xs"
+										type="text"
+										name=""
+										placeholder="Write Donation Amount"
+										id="quotaInput"
+									/>
+								</div>
+								<div class="flex">
+									<button
+										id="quotaBtn"
+										class="btn flex-grow donate bg-[#B4F461]"
+									>
+										Donate Now
+									</button>
+								</div>
+							</form>
 						</div>
 					</div>
 				</div>
