@@ -53,19 +53,18 @@ let historyContent = mySelector("histor-content-continer");
 
 noakhaliBtn.addEventListener("click", function (e) {
 	e.preventDefault();
-
+	let myCash = textValid("myCash");
 	let inputValue = inputValidSelector("noakhaliInput");
 
-	if (isNaN(inputValue) || inputValue < 0) {
+	if (isNaN(inputValue) || inputValue < 0 || myCash < inputValue) {
 		alert("please valid number");
 		return mySelector("noakhaliInput").value = null;
 	}
-	if(inputValue > 0){
-		noakhaliBtn.setAttribute("onclick", "my_modal_5.showModal()");
+	if (inputValue > 0) {
+		document.getElementById("my_modal_5").showModal();
 	}
-	
 	// total cash
-	let myCash = textValid("myCash");
+	
 	let noakhaliChash = textValid("noakhaliChash");
 
 	let newBalance = myCash - inputValue;
@@ -86,42 +85,40 @@ noakhaliBtn.addEventListener("click", function (e) {
 					</div>
     
     `;
-	
+
 	historyContent.innerHTML += myHtml;
-	return mySelector("noakhaliInput").value = null;
+	return (mySelector("noakhaliInput").value = null);
 });
 
 // feni input
 
 const feniBtn = mySelector("feniBtn");
-const feniContent = mySelector("feniContent").innerHTML
+const feniContent = mySelector("feniContent").innerHTML;
 
 feniBtn.addEventListener("click", function (e) {
-
 	e.preventDefault();
 
 	let inputValue = inputValidSelector("feniInput");
-    
-	if (isNaN(inputValue) || inputValue < 0) {
-		
+
+	if (isNaN(inputValue) || inputValue < 0 || myCash < inputValue) {
 		alert("please valid number");
-		return  mySelector("feniInput").value = null;
+		return (mySelector("feniInput").value = null);
 	}
 
-	feniBtn.setAttribute("onclick", "my_modal_5.showModal()");
+	if (inputValue > 0) {
+		document.getElementById("my_modal_5").showModal();
+		// total cash
+		let myCash = textValid("myCash");
+		let feniCash = textValid("feniCash");
 
-	// total cash
-	let myCash = textValid("myCash");
-	let feniCash = textValid("feniCash");
+		let newBalance = myCash - inputValue;
 
-	let newBalance = myCash - inputValue;
+		let addTaka = inputValue + feniCash;
+		mySelector("myCash").innerHTML = newBalance;
+		mySelector("feniCash").innerHTML = addTaka;
 
-	let addTaka = inputValue + feniCash;
-	mySelector("myCash").innerHTML = newBalance;
-	mySelector("feniCash").innerHTML = addTaka;
-
-	let d = new Date().toString();
-	let myHtml = `
+		let d = new Date().toString();
+		let myHtml = `
                 <div class="border-2 p-5 rounded-md space-y-3">
 						<h2 class="font-bold">
 							${inputValue} ${feniContent}
@@ -132,44 +129,38 @@ feniBtn.addEventListener("click", function (e) {
 					</div>
     
     `;
-	
 
-	historyContent.innerHTML += myHtml;
-	return mySelector("feniInput").value = null;
-
+		historyContent.innerHTML += myHtml;
+		return (mySelector("feniInput").value = null);
+	}
 });
-
 
 // quota btn
 const quotaBtn = mySelector("quotaBtn");
-const quotaContent = mySelector("feniContent").innerHTML
+const quotaContent = mySelector("feniContent").innerHTML;
 
 quotaBtn.addEventListener("click", function (e) {
-
 	e.preventDefault();
+	let myCash = textValid("myCash");
 
+	let quotaCash = textValid("quotaCash");
 	let inputValue = inputValidSelector("quotaInput");
-    
-	if (isNaN(inputValue) || inputValue < 0) {
-		
+
+	if (isNaN(inputValue) || inputValue < 0 || myCash < inputValue) {
 		alert("please valid number");
-		return  mySelector("quotaInput").value = null;
+		return (mySelector("quotaInput").value = null);
 	}
 
-	
+	if (inputValue > 0) {
+		// total cash
+		document.getElementById("my_modal_5").showModal();
+		let newBalance = myCash - inputValue;
+		let addTaka = inputValue + quotaCash;
+		mySelector("myCash").innerHTML = newBalance;
+		mySelector("quotaCash").innerHTML = addTaka;
 
-	// total cash
-	let myCash = textValid("myCash");
-	let quotaCash = textValid("quotaCash");
-	
-	let newBalance = myCash - inputValue;
-
-	let addTaka = inputValue + quotaCash;
-	mySelector("myCash").innerHTML = newBalance;
-	mySelector("quotaCash").innerHTML = addTaka;
-
-	let d = new Date().toString();
-	let myHtml = `
+		let d = new Date().toString();
+		let myHtml = `
                 <div class="border-2 p-5 rounded-md space-y-3">
 						<h2 class="font-bold">
 							${inputValue} ${quotaContent}
@@ -180,9 +171,8 @@ quotaBtn.addEventListener("click", function (e) {
 					</div>
     
     `;
-	
 
-	historyContent.innerHTML += myHtml;
-	return mySelector("quotaInput").value = null;
-
+		historyContent.innerHTML += myHtml;
+		return (mySelector("quotaInput").value = null);
+	}
 });
