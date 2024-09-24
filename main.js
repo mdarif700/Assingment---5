@@ -6,6 +6,7 @@ const btnBlog = mySelector("btn-blog");
 const cardSection = mySelector("card-section");
 const historySection = mySelector("history");
 const blogSection = mySelector("blog-section");
+console.log(blogSection)
 
 // history btn addEventListener
 
@@ -19,6 +20,7 @@ btnHistory.addEventListener("click", function (e) {
 	blogSection.classList.add("hidden");
 	// show sectiion
 	historySection.classList.remove("hidden");
+	
 });
 
 //  donation btn addEventListener
@@ -33,6 +35,8 @@ btnDonation.addEventListener("click", function (e) {
 
 	// hidden
 	historySection.classList.add("hidden");
+	blogSection.classList.add("hidden");
+	
 });
 
 //  donation btn addEventListener
